@@ -1,4 +1,4 @@
-// Fetch
+ // Fetch
 //
 // POST
 
@@ -8,7 +8,7 @@ const card = document.querySelector(".card--container");
 const previous = document.getElementById('previous-btn')
 const next = document.getElementById('next-btn')
 
-let currentPokemonIndex = 0;
+
 
 
 
@@ -46,8 +46,6 @@ const createPokemonCard = (pokemon) => {
     pokemonWeight.innerHTML = 'Weight : ${pokemon.weight}';
     pokemonImage.src = pokemon.sprites.front_default;
 
-    card.innerHTML = "";
-
     card.appendChild (pokemonImage);
     card.appendChild (pokemonID);
     card.appendChild (pokemonName);
@@ -59,11 +57,13 @@ const createPokemonCard = (pokemon) => {
 const saveOnLocalStorage = (pokemon) => {
     const pokemonID = pokemon.id;
     //Recuperar 
-    const pokemonsList = JSON.parse(localStorage.getItem("pokemons"))  ||[];
+    const pokemonsList = JSON.parse(localStorage.getItem('pokemons') )|| []; 
     //Agregar pokemon a la lista
-    pokemonList.push(pokemonID);
+    // en caso de no haya nada en localstorage, devuelve
+
+    pokemons.push(pokemonID);
     //Actualizar lista
-        localStorage.setItem('card', JSON.stringify(card))
+    localStorage.setItem('pokemons', JSON.stringify(pokemons))
 };
 /* const getInfoLocalStorage = () => {
     const pokemonsList =JSON.parse(localStorage.getItem("pokemons"));
